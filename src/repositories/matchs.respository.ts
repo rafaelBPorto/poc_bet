@@ -16,7 +16,6 @@ export async function findMatchById(id: number){
     return match
 }
 
-
 export async function insertMatch(match : Match){
     const {home_team_id, visiting_team_id, result_match, date} = match;
     const dateFomat =  dayjs(date)
@@ -30,4 +29,11 @@ export async function insertMatch(match : Match){
         console.log(error)
     }
 
+}
+
+export async function updateResulMatch(id:number, result_match:number) {
+    await connection.query(`
+        UPDATE matches SET result_match=$2 WHERE id = $1;
+    `, [id, result_match])
+    
 }
