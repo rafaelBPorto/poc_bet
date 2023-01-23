@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/rafaelBPorto/poc_bet/issues"
   },
-  "homepage": "https://github.com/rafaelBPorto/poc_bet#readme"
+  "homepage": "https://github.com/rafaelBPorto/poc_bet#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
 }
