@@ -1,5 +1,5 @@
 import { connection } from "../database/database.js";
-import { Guess } from "../protocols.js";
+import { Guess, Match } from "../protocols.js";
 import { findMatchById } from "./matchs.respository.js";
 import { findUserbyId } from "./user.repository.js";
 
@@ -8,12 +8,14 @@ export async function insertGuess(guesses: Guess) {
     try {
         const isUser = await findUserbyId(user_id);
         if (isUser.rowCount === 0) {
-            console.log("userFalse")
             return false
         }
         const isMatch = await findMatchById(match_id);
         if (isMatch.rowCount === 0) {
-            console.log("matchFalse")
+            return false
+        }
+
+        if(isMatch.rows[0].result_match!==4){
             return false
         }
 
